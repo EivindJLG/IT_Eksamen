@@ -61,7 +61,20 @@ def login():
         return "Feil brukernavn eller passord"
         return render_template("login.html")
     
+@app.route("/dashboard")
+def dashboard():
 
+    cursor.execute(
+        """
+        SELECT * 
+        FROM logs
+        ORDER BY timestamp DESC
+        """
+    )
+
+    logs = cursor.fetchall()
+
+    return render_template("dashboard.html", logs=logs)
 
 
 if __name__ == "__main__":
