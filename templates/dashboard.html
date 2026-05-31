@@ -6,6 +6,35 @@
     <title>Dashboard</title>
 </head>
 <body>
-<title>DASHBOARD</title>
+
+<h1>Mini SOC Dashboard</h1>
+
+<h2>Nyeste logs</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Event</th>
+        <th>Message</th>
+        <th>Severity</th>
+        <th>Timestamp</th>
+    </tr>
+
+    {% for log in logs %}
+
+    <tr>
+        <td>{{ log.id }}</td>
+        <td>{{ log.event_type }}</td>
+        <td>{{ log.message }}</td>
+        <td>{{ log.severity }}</td>
+        <td>{{ log.timestamp }}</td>
+    </tr>
+
+    {% endfor %}
+    
+</table>
+
+{% endfor %}
+    
 </body>
 </html>
