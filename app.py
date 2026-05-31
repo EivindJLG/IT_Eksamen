@@ -21,8 +21,22 @@ def login():
 
         user = cursor.fetchone()
 
-        if user and check_password_hash(user["password"], password):
-            return redirect('/dashboard')
+        if user and check_password_hash(user["password_hash"], password):
+            cursor.execute(
+                """
+                INSERT INTO logs
+                (event_type, message, severity)
+                VALUES (%s, %s, %s)
+                """,
+            (
+            "LOGIN_SUCCESS",
+            f"User {username} logget inn",
+        "INFO"
+            )
+        )
+            db.commit()
+
+            return redirect("/dashboard")
         
         return "Feil brukernavn eller passord"
     return render_template("login.html")
