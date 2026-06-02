@@ -35,7 +35,7 @@ def login():
                 (
                     "LOGIN_SUCCESS",
                     f"Bruker {username} logget inn",
-                    "INFO"
+                    "SUCCESS"
                 )
             )
 
@@ -52,7 +52,7 @@ def login():
             (
                 "LOGIN_FAIL",
                 f"Feil brukernavn eller passord for {username}",
-                "WARNING"
+                "SV4"
             )
         )
 
