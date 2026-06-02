@@ -59,7 +59,8 @@ def login():
         db.commit()
 
         return "Feil brukernavn eller passord"
-        return render_template("login.html")
+    
+    return render_template("login.html")
     
 @app.route("/dashboard")
 def dashboard():
