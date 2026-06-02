@@ -2,5 +2,5 @@
 .env
 
 
-# Ignore Python cache filer
+# Ignorer Python cache filer
 __pycache__/
