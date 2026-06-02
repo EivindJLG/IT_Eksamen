@@ -1,8 +1,12 @@
 from werkzeug.security import generate_password_hash
 from db import db, cursor
+import os
+from dotenv import load_dotenv
 
-username = "username"
-password = "eivinderbest"
+load_dotenv()
+
+username = os.getenv("ADMIN_USER")
+password = os.getenv("ADMIN_PASSORD")
 
 hashed_password = generate_password_hash(password)
 

@@ -1,10 +1,14 @@
 import mysql.connector
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 db = mysql.connector.connect(
-    host='localhost',
-    user='eivind',
-    password='eivind123',
-    database='MiniSOC'
+    host=os.getenv("DB_HOST"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSORD"),
+    database=os.getenv("DB_NAME")
 )
 
 cursor = db.cursor(dictionary=True)
